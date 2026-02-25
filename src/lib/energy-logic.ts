@@ -16,6 +16,7 @@ export interface EnergyData {
   gridStatus: "online" | "offline" | "unstable";
   totalConsumption: number;
   totalGeneration: number;
+  acPowerLine: number;
 }
 
 export function autoSwitch(devices: Device[], batteryPercentage: number): Device[] {
@@ -58,4 +59,5 @@ export const defaultEnergyData: EnergyData = {
   gridStatus: "online",
   totalConsumption: 1.82,
   totalGeneration: 3.2,
+  acPowerLine: 0.95,
 };

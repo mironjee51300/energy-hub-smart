@@ -25,6 +25,7 @@ export function useEnergyData() {
           batteryPercentage: Math.max(0, Math.min(100, prev.batteryPercentage + (Math.random() - 0.48) * 2)),
           totalConsumption: Math.max(0, prev.totalConsumption + (Math.random() - 0.5) * 0.1),
           totalGeneration: Math.max(0, prev.solarPower + prev.inverterPower + (Math.random() - 0.5) * 0.1),
+          acPowerLine: Math.max(0, prev.acPowerLine + (Math.random() - 0.5) * 0.15),
         };
         energyRef.current = next;
         return next;
