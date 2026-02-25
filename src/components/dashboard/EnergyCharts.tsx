@@ -22,6 +22,7 @@ export default function EnergyCharts({ history }: EnergyChartsProps) {
         inverter: +d.inverterPower.toFixed(2),
         generation: +d.totalGeneration.toFixed(2),
         consumption: +d.totalConsumption.toFixed(2),
+        acPower: +d.acPowerLine.toFixed(2),
       })),
     [history]
   );
@@ -84,6 +85,10 @@ export default function EnergyCharts({ history }: EnergyChartsProps) {
                   <stop offset="5%" stopColor="hsl(38 92% 50%)" stopOpacity={0.4} />
                   <stop offset="95%" stopColor="hsl(38 92% 50%)" stopOpacity={0} />
                 </linearGradient>
+                <linearGradient id="gradAC" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="hsl(187 80% 48%)" stopOpacity={0.4} />
+                  <stop offset="95%" stopColor="hsl(187 80% 48%)" stopOpacity={0} />
+                </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(222 30% 18%)" />
               <XAxis dataKey="time" tick={{ fill: "hsl(215 20% 55%)", fontSize: 10 }} tickLine={false} axisLine={false} />
@@ -99,6 +104,7 @@ export default function EnergyCharts({ history }: EnergyChartsProps) {
               />
               <Area type="monotone" dataKey="generation" name="Generation" stroke="hsl(142 71% 45%)" fill="url(#gradGen)" strokeWidth={2} dot={false} />
               <Area type="monotone" dataKey="consumption" name="Consumption" stroke="hsl(38 92% 50%)" fill="url(#gradCons)" strokeWidth={2} dot={false} />
+              <Area type="monotone" dataKey="acPower" name="AC Power Line" stroke="hsl(187 80% 48%)" fill="url(#gradAC)" strokeWidth={2} dot={false} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
