@@ -4,7 +4,7 @@ import { useDevices, useEnergyData } from "@/hooks/use-energy-data";
 
 const Devices = () => {
   const { devices, toggleDevice, toggleMode, reorderDevices, runAutoSwitch } = useDevices();
-  const energyData = useEnergyData();
+  const { energyData } = useEnergyData();
 
   return (
     <Layout>
